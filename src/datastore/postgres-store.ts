@@ -4054,7 +4054,7 @@ export class PgDataStore
     });
   }
 
-  async getftMetadata(contractId: string): Promise<FoundOrNot<DbAssetMetadata>> {
+  getftMetadata(contractId: string): Promise<FoundOrNot<DbAssetMetadata>> {
     /**
      * extract nft information from db here..
      */
@@ -4067,12 +4067,12 @@ export class PgDataStore
       image_canonical_uri: 'canonical image uri',
     };
 
-    return {
+    return Promise.resolve({
       found: true,
       result: metadata,
-    };
+    });
   }
-  async getNftMetadata(contractId: string): Promise<FoundOrNot<DbAssetMetadata>> {
+  getNftMetadata(contractId: string): Promise<FoundOrNot<DbAssetMetadata>> {
     /**
      * extract nft information from db here..
      */
@@ -4085,10 +4085,10 @@ export class PgDataStore
       image_canonical_uri: 'canonical image uri',
     };
 
-    return {
+    return Promise.resolve({
       found: true,
       result: metadata,
-    };
+    });
   }
 
   async close(): Promise<void> {
