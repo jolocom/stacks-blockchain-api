@@ -38,7 +38,7 @@ import { ChainID } from '@stacks/transactions';
 import * as pathToRegex from 'path-to-regexp';
 import * as expressListEndpoints from 'express-list-endpoints';
 import { createMiddleware as createPrometheusMiddleware } from '@promster/express';
-import { createTokenRouter } from './routes/tokenes/tokens';
+import { createTokenRouter } from './routes/tokens/tokens';
 
 export interface ApiServer {
   expressApp: ExpressWithAsync;
