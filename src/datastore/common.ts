@@ -288,6 +288,7 @@ export type DataStoreEventEmitter = StrictEventEmitter<
     blockUpdate: (block: DbBlock, txIds: string[]) => void;
     addressUpdate: (info: AddressTxUpdateInfo) => void;
     nameUpdate: (info: string) => void;
+    tokensUpdate: (contractID: string) => void;
   }
 >;
 
