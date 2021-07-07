@@ -1023,6 +1023,10 @@ export interface RosettaNetworkStatusResponse {
 
 export interface FungibleTokenMetadataResponse {
   /**
+   * An optional string that is a valid URI which resolves to this token's metadata. Can be empty.
+   */
+  token_uri: string;
+  /**
    * Identifies the asset to which this token represents
    */
   name: string;
@@ -1049,6 +1053,10 @@ export interface FungibleTokenMetadataResponse {
 }
 
 export interface NonFungibleTokenMetadataResponse {
+  /**
+   * An optional string that is a valid URI which resolves to this token's metadata. Can be empty.
+   */
+  token_uri: string;
   /**
    * Identifies the asset to which this token represents
    */
