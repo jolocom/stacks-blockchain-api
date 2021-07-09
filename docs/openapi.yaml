@@ -1044,6 +1044,30 @@ paths:
               example:
                 $ref: ./api/address/get-address-nft-events.example.json
 
+  /v2/dids/{did}:
+    get:
+      summary: Resolve a Stack v2 decentralized identifier to it's DID Document
+      tags:
+        - Accounts
+      operationId: resolve_did
+      description: |
+        Resolve a did:stacks:v2 DID to it's corresponding DID Document
+      parameters:
+        - name: did
+          in: path
+          description: A well formed Stack v2 decentralized identifier (e.g. `did:stack:v2:SPWA58Z5C5JJW2TTJEM8VZA71NJW2KXXB2HA1V16-d8a9a4528ae833e1894eee676af8d218f8facbf95e166472df2c1a64219b5dfb`)
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: ./api/core-node/get-did-document.schema.json
+              example:
+                $ref: ./api/core-node/get-did-document.example.json
   /v2/accounts/{principal}:
     get:
       summary: Get account info

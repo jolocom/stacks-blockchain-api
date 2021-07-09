@@ -38,6 +38,7 @@ import { ChainID } from '@stacks/transactions';
 import * as pathToRegex from 'path-to-regexp';
 import * as expressListEndpoints from 'express-list-endpoints';
 import { createMiddleware as createPrometheusMiddleware } from '@promster/express';
+import { createDIDRouter } from './routes/did';
 
 export interface ApiServer {
   expressApp: ExpressWithAsync;
@@ -138,6 +139,7 @@ export async function startApiServer(datastore: DataStore, chainId: ChainID): Pr
       const router = addAsync(express.Router());
       router.use(cors());
       router.use('/prices', createBnsPriceRouter(datastore, chainId));
+      router.use('/dids', createDIDRouter(chainId));
       router.use('/', createCoreNodeRpcProxyRouter());
 
       return router;
